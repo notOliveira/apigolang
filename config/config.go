@@ -10,7 +10,19 @@ var (
 )
 
 func Init() error {
+	var err error
+
+	// Initialize SQLite
+	db, err = InitializeSQLite()
+
+	if err != nil {
+		return err
+	}
 	return nil
+}
+
+func GetSQLIte() *gorm.DB {
+	return db
 }
 
 func GetLogger(p string) *Logger {

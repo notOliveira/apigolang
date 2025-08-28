@@ -1,6 +1,7 @@
 package config
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -19,10 +20,10 @@ func NewLogger(p string) *Logger {
 	logger := log.New(writer, p, log.Ldate|log.Ltime)
 	
 	return &Logger{
-		debug: log.New(writer, "DEBUG: ", logger.Flags()),
-		info: log.New(writer, "INFO: ", logger.Flags()),
-		warning: log.New(writer, "WARNING: ", logger.Flags()),
-		err: log.New(writer, "ERR: ", logger.Flags()),
+		debug: log.New(writer, fmt.Sprintf("[%v] DEBUG: ", p), logger.Flags()),
+		info: log.New(writer, fmt.Sprintf("[%v] INFO: ", p), logger.Flags()),
+		warning: log.New(writer, fmt.Sprintf("[%v] WARNING: ", p), logger.Flags()),
+		err: log.New(writer, fmt.Sprintf("[%v] DEBUG: ", p), logger.Flags()),
 	}
 }
 
