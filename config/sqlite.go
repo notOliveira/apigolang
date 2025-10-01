@@ -35,7 +35,7 @@ func InitializeSQLite() (*gorm.DB, error) {
 
 	logger := GetLogger("sqlite")
 	// Create DB
-	db, err := gorm.Open(sqlite.Open("./db/main.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open(dbPath), &gorm.Config{})
 
 	if err != nil {
 		logger.Errorf("Failed to connect to SQLite database: %v", err)
