@@ -2,7 +2,6 @@ package schemas
 
 import (
 	"time"
-
 	"gorm.io/gorm"
 )
 
