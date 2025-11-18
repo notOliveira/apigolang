@@ -5,7 +5,7 @@ import (
 )
 
 func Initialize() {
-	
+
 	// Initialize Gin router
 	r := gin.Default()
 

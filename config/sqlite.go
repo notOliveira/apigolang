@@ -1,21 +1,21 @@
 package config
 
 import (
-    "os"
-    "github.com/notOliveira/apigolang/schemas"
-    "gorm.io/gorm"
-    "github.com/glebarez/sqlite"
+	"github.com/glebarez/sqlite"
+	"github.com/notOliveira/apigolang/schemas"
+	"gorm.io/gorm"
+	"os"
 )
 
 func InitializeSQLite() (*gorm.DB, error) {
-	
+
 	dbPath := "./db/main.db"
 	logger := GetLogger("sqlite")
-	
+
 	// Check if the database file exists
 	_, err := os.Stat(dbPath)
 	if os.IsNotExist(err) {
-		
+
 		// Create the directory if it doesn't exist
 		err = os.MkdirAll("./db", os.ModePerm)
 		if err != nil {
@@ -23,7 +23,7 @@ func InitializeSQLite() (*gorm.DB, error) {
 		}
 
 		// Create the database file
-		file , err := os.Create(dbPath)
+		file, err := os.Create(dbPath)
 		if err != nil {
 			return nil, err
 		}

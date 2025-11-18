@@ -1,8 +1,8 @@
 package schemas
 
 import (
-	"time"
 	"gorm.io/gorm"
+	"time"
 )
 
 type Opening struct {

@@ -6,8 +6,8 @@ import (
 )
 
 var (
-	logger 		*config.Logger
-	db	 		*gorm.DB
+	logger *config.Logger
+	db     *gorm.DB
 )
 
 func InitializeHandler() {

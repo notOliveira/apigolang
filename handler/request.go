@@ -16,7 +16,7 @@ type CreateOpeningRequest struct {
 	Salary   int64  `json:"salary"`
 }
 
-func(r *CreateOpeningRequest) Validate() error {
+func (r *CreateOpeningRequest) Validate() error {
 
 	if r.Role == "" && r.Company == "" && r.Location == "" && r.Remote == nil && r.Link == "" && r.Salary <= 0 {
 		return fmt.Errorf("request body is invalid or empty")
@@ -46,10 +46,9 @@ func(r *CreateOpeningRequest) Validate() error {
 		return errParamIsRequired("link", "string")
 	}
 
-	if r.Salary <=  0 {
+	if r.Salary <= 0 {
 		return errParamIsRequired("salary", "int64")
 	}
 
 	return nil
 }
-
