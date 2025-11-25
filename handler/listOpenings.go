@@ -2,12 +2,15 @@ package handler
 
 import (
 	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/notOliveira/apigolang/schemas"
 )
 
-func UpdateOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"msg": "GET Opening",
-	})
+func ListOpeningHandler(ctx *gin.Context) {
+	openings := []schemas.Opening{}
+	if err := db.Find(&openings).Error; err != nil {
+		sendError(ctx, http.StatusInternalServerError, "Error fetching openings")
+		return
+	}
+	sendSuccess(ctx, "list-openings", openings)
 }
