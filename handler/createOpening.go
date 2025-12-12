@@ -14,7 +14,7 @@ func CreateOpeningHandler(ctx *gin.Context) {
 
 	if err := request.Validate(); err != nil {
 		logger.Errorf("Error validating CreateOpeningRequest: %v", err.Error())
-		sendError(ctx, http.StatusBadRequest, "Invalid request: "+err.Error())
+		sendError(ctx, http.StatusBadRequest, "invalid request: " + err.Error())
 		return
 	}
 
@@ -29,7 +29,7 @@ func CreateOpeningHandler(ctx *gin.Context) {
 
 	if err := db.Create(&opening).Error; err != nil {
 		logger.Errorf("Error creating Opening: %v", err.Error())
-		sendError(ctx, http.StatusInternalServerError, "Error creating opening on database")
+		sendError(ctx, http.StatusInternalServerError, "error creating opening on database")
 		return
 	}
 
