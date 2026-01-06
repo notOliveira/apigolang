@@ -7,6 +7,18 @@ import (
 	"github.com/notOliveira/apigolang/schemas"
 )
 
+// @BasePath /api/v1
+
+// @Summary Create opening
+// @Description Create a new job opening
+// @Tags Openings
+// @Accept json
+// @Produce json
+// @Param request body CreateOpeningRequest true "Request body"
+// @Success 200 {object} CreateOpeningResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /opening [post]
 func CreateOpeningHandler(ctx *gin.Context) {
 	request := CreateOpeningRequest{}
 
@@ -14,7 +26,7 @@ func CreateOpeningHandler(ctx *gin.Context) {
 
 	if err := request.Validate(); err != nil {
 		logger.Errorf("Error validating CreateOpeningRequest: %v", err.Error())
-		sendError(ctx, http.StatusBadRequest, "Invalid request: "+err.Error())
+		sendError(ctx, http.StatusBadRequest, "invalid request: " + err.Error())
 		return
 	}
 
@@ -29,7 +41,7 @@ func CreateOpeningHandler(ctx *gin.Context) {
 
 	if err := db.Create(&opening).Error; err != nil {
 		logger.Errorf("Error creating Opening: %v", err.Error())
-		sendError(ctx, http.StatusInternalServerError, "Error creating opening on database")
+		sendError(ctx, http.StatusInternalServerError, "error creating opening on database")
 		return
 	}
 
