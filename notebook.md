@@ -49,11 +49,13 @@ go build -o nome_arquivo.exe
     </summary>
 
     idade := 30
+
 </details>
 
 <i>OBS: Só pode ser usado dentro de funções. Só funciona para variáveis</i>
 
 ### &rarr; &rarr; &rarr; Detalhe ultra mega importante: &larr; &larr; &larr;
+
 Ao declarar funções, caso ela seja iniciada com a letra minúscula, ela será apenas interna ao seu pacote. Do contrário, ela poderá ser exportada e utilizada em outros pacotes do seu projeto Go.
 
 <details>
@@ -84,6 +86,7 @@ Ao declarar funções, caso ela seja iniciada com a letra minúscula, ela será 
     </summary>
 
     var a, b int = 1, 2
+
 </details>
 
 ## Pacotes + Funções essenciais
@@ -96,8 +99,8 @@ Ao declarar funções, caso ela seja iniciada com a letra minúscula, ela será 
         .Sprintf() &rarr; Retorna o valor de uma string formatada
     </summary>
 
-    Exemplo: 
-    // Exemplo: 
+    Exemplo:
+    // Exemplo:
 
     fmt.Printf("Type: %T - Value: %v", true, true)
     Resultado: Type: bool - Value: true
@@ -115,6 +118,7 @@ Ao declarar funções, caso ela seja iniciada com a letra minúscula, ela será 
 
     %v -> Printa o valor da variável
     %T -> Printa o tipo da variável
+
 </details>
 
 ##### strconv
@@ -149,7 +153,7 @@ Ao declarar funções, caso ela seja iniciada com a letra minúscula, ela será 
     num, err := strconv.ParseInt("12345", 10, 64) // 12345, nil
 
     // Sempre verificar o erro ao usar as funções Parse*
-    
+
 </details>
 
 ## Funções
@@ -350,7 +354,7 @@ len(slice)
 
 </details>
 
-Podem ser usadas como uma classe, 
+Podem ser usadas como uma classe,
 
 ## If / Else
 
@@ -424,6 +428,7 @@ Podem ser usadas como uma classe,
     default:
         fmt.Println("Dia da semana")
     }
+
 </details>
 
 ## For (Loops)
@@ -450,7 +455,7 @@ Podem ser usadas como uma classe,
         break // Para sair do loop
         // Se não tiver o break, o loop continuará indefinidamente
         // Para parar o programa, pode usar ctrl + C no terminal
-    }  
+    }
 
     // Loop com condição (similar ao while)
     count := 0
@@ -458,4 +463,5 @@ Podem ser usadas como uma classe,
         fmt.Println(count)
         count++
     }
+
 </details>
