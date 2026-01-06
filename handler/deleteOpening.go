@@ -7,6 +7,18 @@ import (
 	"github.com/notOliveira/apigolang/schemas"
 )
 
+// @BasePath /api/v1
+
+// @Summary Delete opening
+// @Description Delete a job opening
+// @Tags Openings
+// @Accept json
+// @Produce json
+// @Param id query string true "Opening ID"
+// @Success 200 {object} DeleteOpeningResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /opening [delete]
 func DeleteOpeningHandler(ctx *gin.Context) {
 	id := ctx.Query("id")
 	if id=="" {
